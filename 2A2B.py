@@ -2,18 +2,18 @@ import random
 
 
 # function
-def get_random_algorithm():
+def get_random_algorithm()->str:
     while True:
-        answer = random.sample(range(10), 4) #將0-9隨機取4個數並隨機排列成一個list
+        answer = random.sample(range(10), 4) #Generate a list by randomly selecting four numbers from 0 to 9
         if answer[0] == 0:
             continue
         else:
             break
-    final_answer = "".join(map(str, answer))#將list合併變成string,也就是最後的終極密碼
+    final_answer = "".join(map(str, answer)) #Concatenate the list into a string
     return final_answer
 
 
-def interactive():
+def interactive()->str:
     user_ans = input("\033[37mplease enter your answer: ")
     error = "\033[91mwrong input type! please enter again!"
     if (len(user_ans) != 4) or (len(set(user_ans)) != 4):
@@ -28,7 +28,7 @@ def interactive():
     return user_ans
 
 
-def check(final_ans, user_ans):
+def check(final_ans:str, user_ans:str)->int:
     a = 0
     b = 0
     for i in range(0, 4):
